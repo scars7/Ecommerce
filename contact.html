@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Style inputs */
+    input[type=text], select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      resize: vertical;
+      background-color: #fff;
+    }
+
+    input[type=submit] {
+      background-color: #3498db;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type=submit]:hover {
+      background-color: #2980b9;
+    }
+
+    /* Style the container/contact section */
+    .container {
+      max-width: 800px;
+      margin: auto;
+      border-radius: 5px;
+      background-color: #fff;
+      padding: 20px;
+      margin-top: 50px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Create two columns that float next to each other */
+    .column {
+      float: left;
+      width: 50%;
+      margin-top: 10px;
+       cursor: pointer;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .column, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+      }
+    }
+
+    h2 {
+      text-align: center;
+      color: #3498db;
+    }
+
+    p {
+      text-align: center;
+      color: #777;
+    }
+
+    img {
+      width: 277px;
+      margin-left: 20px;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Contact Us</h2>
+  <p>Swing by for a cup of coffee, or leave us a message:</p>
+
+  <div class="row">
+    <div class="column">
+      <form action="/action_page.php">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your first name..">
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+        <label for="lname">Email</label>
+        <input type="text" id="lemail" name="lemail" placeholder="Your Email">
+        <label for="country">Country</label>
+        <select id="country" name="country">
+          <option value="australia">Nepal</option>
+          <option value="canada">India</option>
+          <option value="usa">Pakistan</option>
+          <option value="usa">Bangaladesh</option>
+        </select>
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+        <input type="submit" onclick="submitFeedback()" value="Submit">
+      </form>
+    </div>
+    <div class="column">
+      <img src="/img/map.jpg" alt="Map Image">
+    </div>
+  </div>
+</div>
+
+<script>
+  function submitFeedback() {
+      // Perform any additional actions or validations here
+      // For now, let's just display a simple alert
+      alert("Thanks for your feedback!");
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>online_shoping</title>
+    <link rel="stylesheet" href="homepage.css" />
+    <style>
+      .product-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                margin: 20px 0;
+            }
+    
+            .product-box {
+                width: 30%;
+                border: 1px solid #ddd;
+                padding: 15px;
+                margin: 8px;
+                text-align: center;
+                cursor: pointer;
+                position: relative;
+                box-sizing: border-box;
+                border-radius: 10px;
+                background-color: #fff;
+                box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.1);
+                transition: .4s;
+                margin-right: 5px;
+                margin-left: 5px;
+            }
+    
+            .product-box:hover {
+                background-color: #f9f9f9;
+                transform: translate(0px, -8px);
+            }
+    
+            .product-image {
+                width: 100%;
+                max-height: 180px;
+                object-fit: cover;
+                border-radius: 8px;
+                margin-bottom: 10px;
+            }
+            .image-box{
+                height: 28vh;
+                max-width: 300px;
+   max-height: 300px;
+    display: block;
+    margin: 0 auto;
+            }
+    
+            .product-details {
+                text-align: center;
+            }
+    
+            .price {
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 5px;
+            }
+    
+            .discount-price {
+                color: #e44d26;
+            }
+    
+            .checked {
+                color: #ff9f43;
+                padding-left: 2px;
+                text-align: left;
+            }
+    
+            .favorite-icon {
+                color: #e44d26;
+                font-size: 18px;
+                margin-top: 5px;
+            }
+    
+            .badge {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                padding: 5px;
+                border-radius: 5px;
+                font-weight: bold;
+                color: #fff;
+            }
+    
+            .new-arrival {
+                background-color: #4CAF50;
+            }
+    
+            .sold-out {
+                background-color: #FF0000;
+            }
+    
+            footer {
+                background-color: aliceblue;
+                color: #333;
+                text-align: center;
+                padding: 4px;
+                margin-top: auto;
+            }
+            .footer-section {
+  width: 100%;
+  background-color: #FFFFFF; /* Set a background color for better visibility */
+  /* Add any other styling you need for the footer */
+}
+
+            .footer-panel {
+  display: flex;
+  justify-content: space-around; /* or other appropriate value */
+  padding: 20px; /* Adjust padding as needed */
+}
+.footer-column {
+  flex: 1; /* This will make each column take equal width */
+  /* Add any other styling you need for the columns */
+}
+    
+            .buy-button {
+                margin-top: 10vh;
+                text-align: center;
+                font-size: 18px;
+                color: #fff;
+                width: 100%; /* Adjusted width to match container */
+                padding: 10px;
+                border: 0;
+                outline: none;
+                cursor: pointer;
+                margin-top: 10px;
+                border-radius: 5px;
+            }
+    
+            .buy-1,
+            .buy-2,
+            .buy-3,
+            .buy-4,
+            .buy-5 {
+                background-color: #2183a2;
+            }
+    
+            .buy-6 {
+                background-color: #ccc; /* Greyed out for sold-out product */
+                cursor: not-allowed;
+            }
+    
+            @media (max-width: 768px) {
+                .menu-icon {
+                    display: block;
+                }
+    
+                ul {
+                    display: none;
+                    flex-direction: column;
+                    background-color: #333;
+                    position: absolute;
+                    top: 60px;
+                    left: 0;
+                    width: 100%;
+                    padding: 10px;
+                }
+    
+                ul.show {
+                    display: flex;
+                }
+    
+                li {
+                    display: block;
+                    margin: 10px 0;
+                    border: none;
+                    padding-left: 0;
+                }
+            }
+    
+           
+    
+            .social-buttons {
+                display: flex;
+                justify-content: flex-end;
+                margin-top: 10px;
+            }
+    
+            .social-buttons a {
+                margin-left: 10px;
+            }
+    
+            .social-buttons img {
+                width: 30px; /* Adjust the width and height as needed */
+                height: 30px;
+                border-radius: 50%;
+            }
+    
+            p {
+                text-align: center;
+                color: #b2b2b2;
+                padding-top: 0 8px;
+            }
+    
+            h6 {
+                font-size: 25px;
+                text-align: center;
+                color: #222f3e;
+                margin: 5px;
+            }
+    
+            /* Modal Styles */
+            .modal {
+                display: inline;
+                background-color: #ffffff;
+                padding: 1rem;
+                border-radius: 0.5rem;
+                min-height: 25rem;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow-x : hidden;
+            }
+    
+            .modal-content {
+                height: auto;
+                overflow-x: hidden;
+
+
+}
+
+            .modal-content #productName {
+                text-align: center;
+            }
+
+            .modal-bottom{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+    align-items: flex-end;
+    text-align: center;
+            }
+            .modal-image {
+                background-color: gray;
+    max-width: 200px;
+   max-height: 200px;
+    display: block;
+    margin: 0 auto;
+}
+    
+            .close-button {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+    
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+    
+            .product-features {
+                text-align: left;
+                margin-bottom: 20px;
+            }
+            .buy-modal,.add-to-cart {
+                flex:1;
+                border-radius: 0.5rem;
+                margin:0 5px;
+                background-color: #2183a2;
+                color: #fff;
+                padding: 10px;
+                border: 0;
+                outline: none;
+                cursor: pointer;
+                width:50%;
+            }
+    
+            .quantity-input {
+                width: 50px;
+                padding: 5px;
+                margin-right: 10px;
+                text-align: center;
+            }
+
+            i{
+                cursor: pointer;
+            }
+        </style>  
+  </head>
+
+  <body>
+    <section id="header">
+      <a href="#"
+        ><img
+          src="img/cropped-printer-zone-2.png" style="mix-blend-mode: color-burn; margin-left: -50px;"
+          width="25%"
+          height="25%"
+          class="logo"
+          alt=""
+      /></a>
+      <div>
+        <ul id="navbar" style=" height: 3rem;">
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="shop.html">Blog</a></li>
+          <li><a href="blog.html">Research</a></li>
+          <li><a href="products.html">Product</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li id="lg-bag">
+            <a href="cart.html">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </a>
+          </li>
+          <a href="#" id="close">
+        </ul>
+      
+      
+      <div id="mobile">
+        <a href="cart.html"
+          ><i class="fa fa-shopping-cart" aria-hidden="true"></i
+        ></a>
+        <i id="bar" class="fa fa-outdent" aria-hidden="true"></i>
+      </div>
+    </section>
+
+    <div class="product-container">
+        <!-- Product 1 -->
+        <div class="product-box">
+            <div class="badge new-arrival">New Arrival</div>
+            <img src="img/injekt.webp" class="product-image" alt="Inkjet Printer">
+            <h3>Inkjet Printer</h3>
+            <h6 class="discount-price">Rs.75000</h6>
+            <h6 style="text-decoration: line-through;">Rs.80000</h6>
+            <ul>
+                <li><i class="fa fa-star checked"></i></li><span style="color: #b2b2b2;">4.5/5</span>
+            </ul>
+            <button type="button" class="buy-button buy-1" onclick="openModal('Inkjet Printer', 'A printer can produce high-quality documents with crisp text and vibrant images, enhancing readability and presentation', 'Rs.75000')">Buy Now</button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-box">
+            <img src="img/printer2.jpg" class="product-image" alt="Laser Printer">
+            <h3>Laser Printer</h3>
+            
+            <h6 class="discount-price">Rs.75000</h6>
+            <h6 style="text-decoration: line-through;">Rs.80000</h6>
+            <ul>
+                <li><i class="fa fa-star checked"></i></li><span style="color: #b2b2b2;">4.7/5</span>
+            </ul>
+            <button type="button" class="buy-button buy-2" onclick="openModal('Laser Printer', 'A printer can produce high-quality documents with crisp text and vibrant images, enhancing readability and presentation', 'Rs.75000')">Buy Now</button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-box">
+            <div class="badge new-arrival">New Arrival</div>
+            <img src="img/therrr.gif" class="product-image" alt="Thermal Printer">
+            <h3>Thermal Printer</h3>
+            
+            <h6 class="discount-price">Rs.75000</h6>
+            <h6 style="text-decoration: line-through;">Rs.80000</h6>
+            <ul>
+                <li><i class="fa fa-star checked"></i></li><span style="color: #b2b2b2;">4.8/5</span>
+            </ul>
+            <button type="button" class="buy-button buy-3" onclick="openModal('Thermal Printer', 'A printer can produce high-quality documents with crisp text and vibrant images, enhancing readability and presentation', 'Rs.75000')">Buy Now</button>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-box">
+            <img src="img/wireless.png" class="product-image" alt="Wireless Printer">
+            <h3>Wireless Printer</h3>
+            
+            <h6 class="discount-price">Rs.75000</h6>
+            <h6 style="text-decoration: line-through;">Rs.80000</h6>
+            <ul>
+                <li><i class="fa fa-star checked"></i></li><span style="color: #b2b2b2;">4.9/5</span>
+            </ul>
+            <button type="button" class="buy-button buy-4" onclick="openModal('Wireless Printer', 'A printer can produce high-quality documents with crisp text and vibrant images, enhancing readability and presentation', 'Rs.75000')">Buy Now</button>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-box">
+            <img src="img/monolaser.jpg" class="product-image" alt="Mono Laser Printer">
+            <h3>Mono Laser Printer</h3>
+            
+            <h6 class="discount-price">Rs.75000</h6>
+            <h6 style="text-decoration: line-through;">Rs.80000</h6>
+            <ul>
+                <li><i class="fa fa-star checked"></i></li><span style="color: #b2b2b2;">4.4/5</span>
+            </ul>
+            <button type="button" class="buy-button buy-5" onclick="openModal('Mono Laser Printer', 'A printer can produce high-quality documents with crisp text and vibrant images, enhancing readability and presentation', 'Rs.75000')">Buy Now</button>
+        </div>
+
+        <!-- Product 6 (Sold Out) -->
+        <div class="product-box">
+            <img src="img/LED.webp" class="product-image" alt="LED Printer">
+            <h3>LED Printer</h3>
+            
+            <h6 class="discount-price">Rs.75000</h6>
+            <h6 style="text-decoration: line-through;">Rs.80000</h6>
+            <ul>
+                <li><i class="fa fa-star checked"></i></li><span style="color: #b2b2b2;">4.4/5</span>
+            </ul>
+            <button  type="button" class="buy-button buy-5" onclick="openModal('Mono Laser Printer', 'A printer can produce high-quality documents with crisp text and vibrant images, enhancing readability and presentation', 'Rs.75000')">Buy Now</button>
+        </div>
+
+         <!-- Product 7 -->
+        <div class="product-box">
+            <div class="badge new-arrival">New Arrival</div>
+            <img src="img/3D.jpg" class="product-image" alt="3D Printer">
+            <h3>3D Printer</h3>
+            
+            <h6 class="discount-price">Rs.75000</h6>
+            <h6 style="text-decoration: line-through;">Rs.80000</h6>
+            <ul>
+                <li><i class="fa fa-star checked"></i></li><span style="color: #b2b2b2;">4.5/5</span>
+            </ul>
+            <button type="button" class="buy-button buy-1" onclick="openModal('Inkjet Printer', 'A printer can produce high-quality documents with crisp text and vibrant images, enhancing readability and presentation', 'Rs.75000')">Buy Now</button>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product-box">
+            <div class="badge new-arrival">New Arrival</div>
+            <img src="img/photo.jpeg" class="product-image" alt=" Photo Printer">
+            <h3>Photo Printer</h3>
+            
+            <h6 class="discount-price">Rs.75000</h6>
+            <h6 style="text-decoration: line-through;">Rs.80000</h6>
+            <ul>
+                <li><i class="fa fa-star checked"></i></li><span style="color: #b2b2b2;">4.5/5</span>
+            </ul>
+            <button type="button" class="buy-button buy-1" onclick="openModal('Inkjet Printer', 'A printer can produce high-quality documents with crisp text and vibrant images, enhancing readability and presentation', 'Rs.75000')">Buy Now</button>
+        </div>
+
+        <!-- Product 9 -->
+        <div class="product-box">
+           
+            <img src="img/linemat.png" class="product-image" alt="Line Printer">
+            <h3>Line Printer</h3>
+            
+            <h6 class="discount-price">Rs.75000</h6>
+            <h6 style="text-decoration: line-through;">Rs.80000</h6>
+            <ul>
+                <li><i class="fa fa-star checked"></i></li><span style="color: #b2b2b2;">4.5/5</span>
+            </ul>
+            <button type="button" class="buy-button buy-1" onclick="openModal('Inkjet Printer', 'A printer can produce high-quality documents with crisp text and vibrant images, enhancing readability and presentation', 'Rs.75000')">Buy Now</button>
+        </div>
+
+        <!-- Product 10 -->
+        <div class="product-box">
+            <img src="img/sub.jpg" class="product-image" alt="Sublimation Printer">
+            <h3>Sublimation Printer</h3>
+            
+            <h6 class="discount-price">Rs.75000</h6>
+            <h6 style="text-decoration: line-through;">Rs.80000</h6>
+            <ul>
+                <li><i class="fa fa-star checked"></i></li><span style="color: #b2b2b2;">4.5/5</span>
+            </ul>
+            <button type="button" class="buy-button buy-1" onclick="openModal('Inkjet Printer', 'A printer can produce high-quality documents with crisp text and vibrant images, enhancing readability and presentation', 'Rs.75000')">Buy Now</button>
+        </div>
+
+        
+        <!-- Product 11 -->
+        <div class="product-box">
+            <div class="image-box"> <img src="img/multifunc.jpg" class="product-image" alt="Multi Function Printer"> </div>
+            <h3>Multi Function Printer</h3>
+            
+            <h6 class="discount-price">Rs.75000</h6>
+            <h6 style="text-decoration: line-through;">Rs.80000</h6>
+            <ul>
+                <li><i class="fa fa-star checked"></i></li><span style="color: #b2b2b2;">4.5/5</span>
+            </ul>
+            <button type="button" class = "buy-button buy-1" onclick="openModal('Inkjet Printer', 'A printer can produce high-quality documents with crisp text and vibrant images, enhancing readability and presentation', 'Rs.75000')">Buy Now</button>
+        </div>
+
+        <!-- Product 12-->
+        <div class="product-box">
+            <img src="img/a3.jpg" class="product-image" alt="A3 Printer">
+            <h3>A3 Printer</h3>
+            
+            <h6 class="discount-price">Rs.750000</h6>
+            <h6 style="text-decoration: line-through;">Rs.800000</h6>
+            <ul>
+                <li><i class="fa fa-star checked"></i></li><span style="color: #b2b2b2;">4.5/5</span>
+            </ul>
+            <button type="button" class="buy-button buy-1" onclick="openModal('Inkjet Printer', 'A printer can produce high-quality documents with crisp text and vibrant images, enhancing readability and presentation', 'Rs.75000')">Buy Now</button>
+        </div>
+
+        <div id="myModal" class="modal" style="box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.1);">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <!-- Modal close button -->
+                <span class="close-button" onclick="closeModal()">&times;</span>
+        
+                <!-- Product details -->
+                <div id="productImageContainer">
+                    <img src="" alt="" id="productImage" class="modal-image">
+                </div>
+                <h2 id="productName"></h2>
+                <p id="productDescription"></p>
+                <h6 class="discount-price" id="productPrice"></h6>
+                <div class="modal-bottom">
+                     <button type = "button" class="buy-modal">Buy Now</button> <button type="button" class="add-to-cart"> Add to Cart</button>
+                    </div>
+            </div>
+        </div>
+        
+
+        <script>
+                var modal = document.getElementById('myModal');
+
+    // Hide the modal
+    modal.style.display = 'none';
+            function openModal(productName, productDescription, productPrice) {
+    // Get the modal elements
+    var modal = document.getElementById('myModal');
+    var productNameElement = document.getElementById('productName');
+    var productDescriptionElement = document.getElementById('productDescription');
+    var productPriceElement = document.getElementById('productPrice');
+    var productImageElement = document.getElementById('productImage');
+
+    // Set the content based on the product information
+    productNameElement.textContent = productName;
+    productDescriptionElement.textContent = productDescription;
+    productPriceElement.textContent = productPrice;
+
+    var productBox = event.currentTarget.closest('.product-box');
+        var productImageSource = productBox.querySelector('.product-image').src;
+        productImageElement.src = productImageSource;
+    
+
+    // Display the modal
+    modal.style.display = 'inline-block';
+}
+
+function closeModal() {
+    // Get the modal element
+    var modal = document.getElementById('myModal');
+
+    // Hide the modal
+    modal.style.display = 'none';
+}
+
+        </script>
+    
+    <section id="newletter" class="section-p1 section-m1" style="width: 100%;">
+      <div class="newtext">
+        <h4>Sign Up For newletters</h4>
+        <p>
+          Get E-mail update about our latest shop and
+          <span>special offers.</span>
+        </p>
+      </div>
+      <div class="form">
+        <input type="text" placeholder="Your email address" />
+        <button class="normal">Sign Up</button>
+      </div>
+    </section>
+
+    <footer class="footer-section">
+      <div class="footer-panel">
+        <div class="footer-column">
+          <img
+            class="logo"
+            src="img/cropped-printer-zone-2.png"
+            height="14%"
+            alt=""
+          />
+          <h4>Contact</h4>
+          <p><strong>Address:</strong> Islington College, Kathmandu</p>
+          <p><strong>Phone:</strong>+977-0000000</p>
+          <p><strong>Hours:</strong> 10:00 -10:00, Sun-Sat</p>
+        </div>
+        <div class="footer-column">
+          <h4>follow us</h4>
+          <div class="icon">
+            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+            <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>About</h4>
+          <a href="#">About us</a>
+          <a href="#">Delivery Information</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact us</a>
+        </div>
+      </div>
+
+      
+      <script src="script.js"></script>
+    </body>
+  </html>

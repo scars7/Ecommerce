@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>assignment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .table-contain {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .sub1 h3 {
+            padding: 0.7rem;
+            text-align: center;
+        }
+
+        .main_container {
+            border: 5px solid rgb(0, 0, 0);
+            display: grid;
+        }
+
+        th {
+            border: 1px solid black;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 5px 0px;
+        }
+
+        .contains {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem;
+            gap: 5px;
+        }
+
+        .sub3 {
+            border: 1px solid black;
+            margin: 1px;
+        }
+
+        .info {
+            display: grid;
+            gap: .7rem;
+        }
+
+        .input-type {
+            display: grid;
+            gap: .7rem;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table-contain">
+
+
+
+        <div class="main_container">
+            <div class="sub1" style="border: 1px solid rgb(0, 0, 0); margin:1px">
+                <h3>Information System-Lab Works 16</h3>
+            </div>
+            <div class="sub2">
+                <table>
+                    <tr>
+                        <th style="padding: 0.5rem 4rem;">
+                            <h3><i>Article 1</i></h3>
+                            <p style="font-size: 14px; font-weight:400; padding:7px">Hello world this new text for
+                                article one.</p>
+                        </th>
+                        <th
+                            style="padding: 0.5rem 4rem; display:flex; flex-direction:column; justify-content:center; align-items:center;   ">
+                            <h3 style=" width:fit-content; background-color:rgb(169, 169, 64);">Article 1</h3>
+                            <p style="font-size: 14px; font-weight:400;padding:7px ">Hello world this is new text for article two.</p>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td
+                            style="padding: 0.5rem 1rem;  text-align:center; text-decoration:underline; font-weight:600">
+                            Ordered List</td>
+                        <td
+                            style="padding: 0.5rem 1rem; text-align:center; text-decoration:line-through;font-weight:600">
+                            Unordered List</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:1rem 2rem;">
+                            <ol>
+                                <li>Item 1</li>
+                                <li>Item 2</li>
+                                <li>Item 3
+                                    <ol type="i" style="padding: 0 2rem;"><b>
+                                        <li>Item</li>
+                                        <li>Item 2</li>
+                                        <li>Item 3</li>
+                                    </ol></b>
+                                </li>
+                                <li>Item 4</li>
+                            </ol>
+                        </td>
+                        <td style="padding:1rem 2rem;">
+                            <ul>
+                                <li>Item 1</li>
+                                <li>Item 2</li>
+                                <li>Item 3
+                                    <ul type="arrow" style="padding: 0 2rem;">
+                                        <li>Item 1</li>
+                                        <li>Item 2</li>
+                                        <li>Item 3</li>
+                                    </ul>
+                                </li>
+                                <li>Item 4</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+
+            <div class="sub3" style="padding: 0 ;">
+                <form action="#">
+                    <div class="contains">
+                        <div class="info">
+                            <p>First Name:</p>
+                            <p>Last Name:</p>
+                            <p>Email:</p>
+                        </div>
+                        <div class="input-type">
+                            <input type="text">
+                            <input type="text">
+                            <input type="email">
+                        </div>
+                    </div>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="description" style=" width: 56%;">
+        </div></i></p>
+
+    </div>
+</body>
+
+</html>
